@@ -61,6 +61,7 @@ inquirer
         name: 'email',
         },
 ])
+// HTML
 const generateHTML = (response) =>
 `<!DOCTYPE html>
 <html lang="en">
@@ -145,10 +146,19 @@ const generateHTML = (response) =>
 </body>
 </html>`;
 
+// generate HTML file
 promptUser()
-  .then((response) => writeFileAsync('index.html', generateHTML(response)))
-  .then(() => console.log('Successfully wrote to index.html'))
-  .catch((err) => console.error(err));
+  .then((response) => {
+      writeFileAsync('index.html', generateHTML(response));
+  })
+
+  .then(() => {
+   console.log('created HTML');
+})
+
+  .catch((error) => {
+    console.error(error);
+  })
 
 
 
